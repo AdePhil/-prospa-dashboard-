@@ -1,0 +1,53 @@
+.account-card {
+  background-color: #fff;
+  box-shadow: -12px 16px 56px rgba(39, 4, 80, 0.12);
+  padding: 20px 30px;
+  &__heading {
+    color: #270450;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin: 0;
+    text-transform: capitalize;
+  }
+  &__number {
+    color: #778699;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__amount {
+    color: #270450;
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin: 10px 0 0 0;
+  }
+
+  .icon {
+    width: 50px;
+    height: 50px;
+    background-color: lighten($color: #fa4a84, $amount: 30);
+    // opacity: 0.5;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.savings {
+      background-color: lighten($color: #7e51ff, $amount: 30);
+    }
+
+    &.tax {
+      background-color: lighten($color: #bb53f2, $amount: 30);
+    }
+    img {
+      width: 20px;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr;
+  &__header {
+    grid-column: 1/-1;
+    background-color: #fff;
+    box-shadow: 6px 2px 26px rgba(39, 4, 80, 0.16);
+    padding: 15px 80px 15px 40px;
+    overflow-x: hidden;
+    min-height: 40px;
+  }
+  &__side-nav {
+    background-color: #270450;
+    color: rgba(255, 255, 255, 0.7);
+    position: relative;
+    z-index: 5;
+    margin-top: -40px;
+    padding-top: 10px;
+    .logo {
+      display: flex;
+      justify-content: center;
+      img {
+        height: 30px;
+      }
+      h3 {
+        font-weight: bold;
+        color: #fff;
+        font-size: 29px;
+        margin: 0;
+        line-height: 0.9;
+        margin-top: 2px;
+        margin-left: 5px;
+      }
+    }
+    .side-nav {
+      padding-top: 40px;
+      &-item {
+        display: block;
+        color: #fff;
+        padding: 10px 0;
+        text-decoration: none;
+        font-size: 1.6rem;
+        display: flex;
+        padding-left: 40px;
+        align-items: center;
+        &:hover,
+        &.active {
+          background-color: #fa4a84;
+        }
+        img {
+          width: 20px;
+          margin-right: 10px;
+        }
+        span {
+          display: block;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+  &__main {
+    padding: 30px 50px;
+  }
+}
