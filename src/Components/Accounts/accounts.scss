@@ -1,6 +1,7 @@
 .account {
   display: grid;
   grid-template-columns: 1fr 300px;
+  overflow-x: hidden;
   @media (max-width: 1200px) {
     grid-template-columns: 1fr;
   }

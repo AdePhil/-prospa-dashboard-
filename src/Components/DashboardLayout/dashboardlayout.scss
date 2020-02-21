@@ -68,6 +68,8 @@
     margin-left: 260px;
     min-height: calc(100vh - 60px);
     position: relative;
+    overflow-x: hidden;
+
     @media (max-width: 1000px) {
       margin-left: 0;
     }
