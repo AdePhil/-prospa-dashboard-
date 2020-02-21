@@ -11,6 +11,9 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-gap: 40px 20px;
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
   }
   .add-more {
     border: 1px dashed rgba(39, 4, 80, 0.12);
