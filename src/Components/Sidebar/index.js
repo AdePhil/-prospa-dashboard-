@@ -7,9 +7,15 @@ import { NavLink, useHistory } from "react-router-dom";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 
-const Sidebar = ({ items, setSideBarItems, active, sidebarRef }) => {
-  let history = useHistory();
+const Sidebar = ({
+  items,
+  setSideBarItems,
+  active,
+  sidebarRef,
+  setShowMenu
+}) => {
   function toggleCollapse(id) {
+    // setShowMenu(false);
     setSideBarItems(items => {
       return items.map(item => {
         if (item.id === id) {

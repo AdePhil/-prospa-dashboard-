@@ -145,6 +145,8 @@ const DashboardLayout = () => {
         setSideBarItems={setSideBarItems}
         active={showMenu}
         sidebarRef={mobileRef}
+        setShowMenu={setShowMenu}
+        pathname={location.pathname}
       />
       <main className="dashboard__main">
         <Route
