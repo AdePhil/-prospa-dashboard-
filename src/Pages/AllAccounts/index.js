@@ -26,7 +26,7 @@ const AllAccounts = () => {
           <AccountCard account={account} key={account.id} />
         ))}
         <div className="add-more">
-          <img src="./add-more.svg" alt="Add more accounts" />
+          <img src="/add-more.svg" alt="Add more accounts" />
           <p>Add a new account</p>
         </div>
       </div>
