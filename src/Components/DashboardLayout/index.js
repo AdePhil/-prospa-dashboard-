@@ -2,7 +2,13 @@
 import React, { useEffect, useRef } from "react";
 import "./dashboardlayout.scss";
 import AllAccounts from "../../Pages/AllAccounts";
-import { Switch, Route, NavLink, useLocation } from "react-router-dom";
+import {
+  Switch,
+  Route,
+  NavLink,
+  useLocation,
+  Redirect
+} from "react-router-dom";
 import Invoicing from "../../Pages/Invoicing";
 import Sidebar from "../Sidebar";
 import { useState } from "react";
@@ -13,6 +19,10 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 import CurrentAccounts from "../../Pages/CurrentAccounts";
 import SavingsAccounts from "../../Pages/SavingsAccounts";
 import TaxAccounts from "../../Pages/TaxAccounts";
+import Security from "../../Pages/Security";
+import Support from "../../Pages/Support";
+import Profile from "../../Pages/Profile";
+import Settings from "../../Pages/Settings";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import useOutsideClicks from "../../hooks/useOutsideClicks";
 
@@ -24,6 +34,7 @@ const initialSideBarItems = [
     link: "/",
     open: false,
     items: [
+      { id: 2, name: "all", label: "All", link: "/accounts/all" },
       { id: 2, name: "current", label: "Current", link: "/accounts/current" },
       { id: 3, name: "savings", label: "Savings", link: "/accounts/savings" },
       { id: 4, name: "tax", label: "Tax", link: "/accounts/tax" }
@@ -47,7 +58,7 @@ const initialSideBarItems = [
         id: 2,
         name: "settings",
         label: "Settings",
-        link: "/account-management/settings"
+        link: "/settings"
       }
     ]
   },
@@ -60,7 +71,7 @@ const initialSideBarItems = [
   },
   {
     id: 8,
-    name: "security",
+    name: "Profile",
     label: "Security",
     link: "/security",
     open: false
@@ -162,8 +173,27 @@ const DashboardLayout = () => {
                     <Route path="/" exact>
                       <AllAccounts />
                     </Route>
+                    <Route path="/accounts/all" exact>
+                      <AllAccounts />
+                    </Route>
                     <Route path="/invoicing" exact>
                       <Invoicing />
+                    </Route>
+                    <Route path="/support" exact>
+                      <Support />
+                    </Route>
+                    <Route path="/security" exact>
+                      <Security />
+                    </Route>
+                    <Route
+                      path="/account-management"
+                      render={() => <Redirect to={"/settings"} />}
+                    ></Route>
+                    <Route path="/settings" exact>
+                      <Settings />
+                    </Route>
+                    <Route path="/profile" exact>
+                      <Profile />
                     </Route>
                     <Route path="/accounts/current" exact>
                       <CurrentAccounts />

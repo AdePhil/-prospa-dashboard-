@@ -9,7 +9,7 @@ const AccountCard = ({ account: { type, amount, number } }) => {
           <p className="account-card__number">{number}</p>
         </div>
         <div className={`${type} icon`}>
-          <img src={`${type}-account.svg`} alt={`${type} account`} />
+          <img src={`/${type}-account.svg`} alt={`${type} account`} />
         </div>
       </div>
       <p className="account-card__amount">₦{amount}</p>
