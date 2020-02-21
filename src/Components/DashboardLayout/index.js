@@ -7,7 +7,8 @@ import {
   Route,
   useLocation,
   Redirect,
-  useHistory
+  useHistory,
+  Link
 } from "react-router-dom";
 import Invoicing from "../../Pages/Invoicing";
 import Sidebar from "../Sidebar";
@@ -146,6 +147,12 @@ const DashboardLayout = () => {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
+            <MenuItem onClick={handleClose} component={Link} to={"/profile"}>
+              Profile
+            </MenuItem>
+            <MenuItem onClick={handleClose} component={Link} to={"/settings"}>
+              My Account
+            </MenuItem>
             <MenuItem onClick={handleClose}>Logout</MenuItem>
           </Menu>
         </div>
