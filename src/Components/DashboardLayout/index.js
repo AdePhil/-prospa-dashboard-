@@ -2,7 +2,13 @@
 import React, { useEffect, useRef } from "react";
 import "./dashboardlayout.scss";
 import AllAccounts from "../../Pages/AllAccounts";
-import { Switch, Route, useLocation, Redirect } from "react-router-dom";
+import {
+  Switch,
+  Route,
+  useLocation,
+  Redirect,
+  useHistory
+} from "react-router-dom";
 import Invoicing from "../../Pages/Invoicing";
 import Sidebar from "../Sidebar";
 import { useState } from "react";
@@ -81,6 +87,7 @@ const DashboardLayout = () => {
   let testRef = useRef(null);
   const [isOutside, clickTarget] = useOutsideClicks(mobileRef, testRef);
   let location = useLocation();
+  let history = useHistory();
 
   useEffect(() => {
     setSideBarItems(items => {
@@ -114,6 +121,9 @@ const DashboardLayout = () => {
           ref={testRef}
         >
           &#9776;
+        </button>
+        <button className="btn back" onClick={() => history.goBack()}>
+          <img src="/back.svg" alt="Go back" />
         </button>
         <div className="dashboard__header-message">
           <img src="/envelop.svg" alt="Message" />

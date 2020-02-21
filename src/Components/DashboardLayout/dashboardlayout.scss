@@ -20,10 +20,26 @@
     }
 
     .mobile {
-      margin-right: auto;
+      // margin-right: auto;
+      display: none;
       font-size: 20px;
       color: var(--blue);
       cursor: pointer;
+      @media (max-width: 1000px) {
+        display: inline-block;
+      }
+    }
+    .back {
+      cursor: pointer;
+      margin-left: 250px;
+      margin-right: auto;
+      @media (max-width: 1000px) {
+        margin-right: auto;
+        margin-left: 10px;
+      }
+      img {
+        width: 15px;
+      }
     }
 
     &-message {
