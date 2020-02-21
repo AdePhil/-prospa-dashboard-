@@ -1,5 +1,10 @@
 .all-accounts {
   &__heading {
+    color: var(--blue);
+    padding: 20px 0;
+    margin-bottom: 40px;
+    border-bottom: 0.5px solid var(--light-blue);
+    font-weight: 600;
   }
   &__cards {
     display: grid;

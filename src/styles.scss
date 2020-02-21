@@ -1,3 +1,10 @@
+:root {
+  --blue: #270450;
+  --light-blue: #dcdcee;
+  --blue-gray: #778699;
+  --purple: #7e51ff;
+  --red: #fa4a84;
+}
 * {
   box-sizing: border-box;
 }
@@ -61,4 +68,8 @@ p {
 
 h1 {
   font-size: 3.6rem;
+}
+
+.text-blue {
+  color: var(--blue);
 }

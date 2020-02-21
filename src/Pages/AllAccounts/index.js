@@ -1,6 +1,7 @@
 import React from "react";
 import AccountCard from "../../Components/AccountCard";
 import "./allaccounts.scss";
+import Table from "../../Components/Table";
 const accounts = [
   {
     id: 1,
@@ -19,7 +20,7 @@ const accounts = [
 const AllAccounts = () => {
   return (
     <div className="all-accounts">
-      <h1 className="all-accounts__heading">All Accounts</h1>
+      <h1 className="all-accounts__heading">All accounts</h1>
       <div className="all-accounts__cards">
         {accounts.map(account => (
           <AccountCard account={account} key={account.id} />
@@ -29,6 +30,9 @@ const AllAccounts = () => {
           <p>Add a new account</p>
         </div>
       </div>
+      <h1 className="all-accounts__heading">All transactions</h1>
+      <Table data={{ date: "Friday 15 July 2019", isExportable: true }} />
+      <Table data={{ date: "Thursday 14 July 2019", isExportable: false }} />
     </div>
   );
 };
