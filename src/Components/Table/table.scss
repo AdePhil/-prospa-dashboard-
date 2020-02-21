@@ -5,10 +5,12 @@
     justify-content: space-between;
     padding: 10px 20px;
     align-items: center;
+    flex-wrap: wrap;
     h3 {
       font-size: 2.9rem;
       font-weight: 500;
       color: var(--blue);
+      margin-right: 10px;
     }
     .buttons {
       display: flex;
@@ -20,7 +22,6 @@
       align-items: center;
       padding: 5px 20px;
       border-radius: 2px;
-      margin-left: 10px;
       span {
         font-size: 1.4rem;
         font-weight: 600;
@@ -28,10 +29,14 @@
         display: block;
         margin-top: -5px;
       }
+
       img {
         width: 25px;
         margin-right: 5px;
       }
+    }
+    .filter-btn {
+      margin-left: 10px;
     }
   }
   &__container {
@@ -48,6 +53,7 @@
     min-height: 100px;
     font-weight: 600;
     color: var(--blue-gray);
+    cursor: pointer;
   }
 
   .td {

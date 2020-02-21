@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useEffect } from "react";
 import "./dashboardlayout.scss";
 import AllAccounts from "../../Pages/AllAccounts";
-import { Switch, Route, NavLink } from "react-router-dom";
+import { Switch, Route, NavLink, useLocation } from "react-router-dom";
 import Invoicing from "../../Pages/Invoicing";
 import Sidebar from "../Sidebar";
 import { useState } from "react";
@@ -10,6 +10,7 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
 import ExpandMore from "@material-ui/icons/ExpandMore";
+import CurrentAccounts from "../../Pages/CurrentAccounts";
 
 const initialSideBarItems = [
   {
@@ -63,10 +64,21 @@ const initialSideBarItems = [
   { id: 9, name: "support", label: "Support", link: "/support", open: false }
 ];
 
-const DashboardLayout = () => {
+const DashboardLayout = ({ match }) => {
   const [sideBarItems, setSideBarItems] = useState(initialSideBarItems);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  let location = useLocation();
 
+  useEffect(() => {
+    setSideBarItems(items => {
+      return items.map(item => {
+        if (location.pathname.includes(item.name)) {
+          return { ...item, open: true };
+        }
+        return item;
+      });
+    });
+  }, [location.pathname]);
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
@@ -78,7 +90,7 @@ const DashboardLayout = () => {
     <div className="dashboard">
       <header className="dashboard__header">
         <div className="dashboard__header-message">
-          <img src="./envelop.svg" alt="Message" />
+          <img src="/envelop.svg" alt="Message" />
         </div>
         <div className="dashboard__header-user">
           <Button
@@ -87,7 +99,7 @@ const DashboardLayout = () => {
             onClick={handleClick}
             fontFamily={"Gilroy"}
           >
-            <img src="./user.svg" alt="User" />
+            <img src="/user.svg" alt="User" />
             <span>Victor Shiwani</span>
             <ExpandMore />
           </Button>
@@ -114,6 +126,9 @@ const DashboardLayout = () => {
           </Route>
           <Route path="/invoicing">
             <Invoicing />
+          </Route>
+          <Route path="/accounts/current">
+            <CurrentAccounts />
           </Route>
         </Switch>
       </main>

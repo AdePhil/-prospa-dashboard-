@@ -2,7 +2,8 @@
   display: grid;
   grid-template-columns: 1fr;
   min-height: 100vh;
-  // grid-template-rows: auto 1fr;
+  grid-template-rows: auto;
+  background-color: #fff;
   &__header {
     grid-column: 1/-1;
     background-color: #fff;
@@ -36,7 +37,8 @@
     }
   }
   &__main {
-    padding: 30px 50px;
-    margin-left: 250px;
+    // padding: 0  0 30px 50px;
+    margin-left: 260px;
+    min-height: calc(100vh - 60px);
   }
 }

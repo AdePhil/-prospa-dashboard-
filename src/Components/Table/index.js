@@ -8,12 +8,12 @@ const Table = ({ data: { date, isExportable } }) => {
         {isExportable && (
           <div className="buttons">
             <button className="btn export-btn">
-              <img src="./export.svg" alt="Export" />
+              <img src="/export.svg" alt="Export" />
               <span>Export data</span>
             </button>
 
             <button className="btn filter-btn">
-              <img src="./filter.svg" alt="Filter" />
+              <img src="/filter.svg" alt="Filter" />
               <span>Filter</span>
             </button>
           </div>
@@ -25,7 +25,7 @@ const Table = ({ data: { date, isExportable } }) => {
           <tr className="tr">
             <td className="td">
               <div className="icon" style={{ backgroundColor: "#A7E521" }}>
-                <img src="./sales.svg" alt="" />
+                <img src="/sales.svg" alt="" />
               </div>
             </td>
             <td className="td">
@@ -40,7 +40,7 @@ const Table = ({ data: { date, isExportable } }) => {
           <tr className="tr">
             <td className="td">
               <div className="icon">
-                <img src="./house.svg" alt="" />
+                <img src="/house.svg" alt="" />
               </div>
             </td>
             <td className="td">
@@ -55,7 +55,7 @@ const Table = ({ data: { date, isExportable } }) => {
           <tr className="tr">
             <td className="td">
               <div className="icon" style={{ backgroundColor: "#74D4F0" }}>
-                <img src="./plane.svg" alt="" />
+                <img src="/plane.svg" alt="" />
               </div>
             </td>
             <td className="td">
@@ -70,7 +70,7 @@ const Table = ({ data: { date, isExportable } }) => {
           <tr className="tr">
             <td className="td">
               <div className="icon">
-                <img src="./house.svg" alt="" />
+                <img src="/house.svg" alt="" />
               </div>
             </td>
             <td className="td">

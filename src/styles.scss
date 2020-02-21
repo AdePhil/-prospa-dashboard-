@@ -71,5 +71,8 @@ h1 {
 }
 
 .text-blue {
-  color: var(--blue);
+  color: var(--blue) !important;
+}
+.text-center {
+  text-align: center;
 }

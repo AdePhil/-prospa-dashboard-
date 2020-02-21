@@ -2,7 +2,6 @@ import React from "react";
 import "./sidebar.scss";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
 import Collapse from "@material-ui/core/Collapse";
 import { NavLink } from "react-router-dom";
 import ExpandMore from "@material-ui/icons/ExpandMore";
@@ -23,7 +22,7 @@ const Sidebar = ({ items, setSideBarItems }) => {
   return (
     <aside className="dashboard__side-nav">
       <div className="logo">
-        <img src="./logo2.svg" alt="Prospa logo" />
+        <img src="/logo2.svg" alt="Prospa logo" />
         <h3>Prospa</h3>
       </div>
       <nav className="side-nav">
@@ -40,7 +39,7 @@ const Sidebar = ({ items, setSideBarItems }) => {
                   to={link}
                   onClick={() => toggleCollapse(id)}
                 >
-                  <img src={`./${name}.svg`} alt="Accounts" />
+                  <img src={`/${name}.svg`} alt="Accounts" />
                   <span>{label}</span>
                   {!Array.isArray(subItems) ? null : open ? (
                     <div className="drop-down">
@@ -65,7 +64,7 @@ const Sidebar = ({ items, setSideBarItems }) => {
                           to={subItem.link}
                           style={{ paddingLeft: "58px" }}
                         >
-                          {/* <img src={`./${subItem.name}.svg`} alt="Accounts" /> */}
+                          {/* <img src={`/${subItem.name}.svg`} alt="Accounts" /> */}
                           <span>{subItem.label}</span>
                         </ListItem>
                       ))}
@@ -77,7 +76,7 @@ const Sidebar = ({ items, setSideBarItems }) => {
           )}
         </List>
         <div className="circle">
-          <img src="./circle.svg" alt="circle" />
+          <img src="/circle.svg" alt="circle" />
         </div>
       </nav>
     </aside>
