@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./sidebar.scss";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Collapse from "@material-ui/core/Collapse";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 
-const Sidebar = ({ items, setSideBarItems }) => {
+const Sidebar = ({ items, setSideBarItems, active, sidebarRef }) => {
+  let history = useHistory();
   function toggleCollapse(id) {
     setSideBarItems(items => {
       return items.map(item => {
@@ -20,7 +21,10 @@ const Sidebar = ({ items, setSideBarItems }) => {
   }
 
   return (
-    <aside className="dashboard__side-nav">
+    <aside
+      className={`${active ? "active" : ""} dashboard__side-nav`}
+      ref={sidebarRef}
+    >
       <div className="logo">
         <img src="/logo2.svg" alt="Prospa logo" />
         <h3>Prospa</h3>
@@ -37,7 +41,7 @@ const Sidebar = ({ items, setSideBarItems }) => {
                   className="side-nav-item"
                   exact
                   to={link}
-                  onClick={() => toggleCollapse(id)}
+                  onClick={() => toggleCollapse(id, link)}
                 >
                   <img src={`/${name}.svg`} alt="Accounts" />
                   <span>{label}</span>

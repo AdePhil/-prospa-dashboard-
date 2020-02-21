@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "./dashboardlayout.scss";
 import AllAccounts from "../../Pages/AllAccounts";
 import { Switch, Route, NavLink, useLocation } from "react-router-dom";
@@ -11,6 +11,10 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import CurrentAccounts from "../../Pages/CurrentAccounts";
+import SavingsAccounts from "../../Pages/SavingsAccounts";
+import TaxAccounts from "../../Pages/TaxAccounts";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import useOutsideClicks from "../../hooks/useOutsideClicks";
 
 const initialSideBarItems = [
   {
@@ -64,9 +68,13 @@ const initialSideBarItems = [
   { id: 9, name: "support", label: "Support", link: "/support", open: false }
 ];
 
-const DashboardLayout = ({ match }) => {
+const DashboardLayout = () => {
   const [sideBarItems, setSideBarItems] = useState(initialSideBarItems);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [showMenu, setShowMenu] = useState();
+  let mobileRef = useRef(null);
+  let testRef = useRef(null);
+  const [isOutside, clickTarget] = useOutsideClicks(mobileRef, testRef);
   let location = useLocation();
 
   useEffect(() => {
@@ -79,6 +87,13 @@ const DashboardLayout = ({ match }) => {
       });
     });
   }, [location.pathname]);
+
+  useEffect(() => {
+    console.log({ isOutside });
+    if (isOutside) {
+      setShowMenu(false);
+    }
+  }, [clickTarget, isOutside]);
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
@@ -89,6 +104,13 @@ const DashboardLayout = ({ match }) => {
   return (
     <div className="dashboard">
       <header className="dashboard__header">
+        <button
+          className="btn mobile"
+          onClick={() => setShowMenu(prev => !prev)}
+          ref={testRef}
+        >
+          &#9776;
+        </button>
         <div className="dashboard__header-message">
           <img src="/envelop.svg" alt="Message" />
         </div>
@@ -118,19 +140,44 @@ const DashboardLayout = ({ match }) => {
           </Menu>
         </div>
       </header>
-      <Sidebar items={sideBarItems} setSideBarItems={setSideBarItems} />
+      <Sidebar
+        items={sideBarItems}
+        setSideBarItems={setSideBarItems}
+        active={showMenu}
+        sidebarRef={mobileRef}
+      />
       <main className="dashboard__main">
-        <Switch>
-          <Route path="/" exact>
-            <AllAccounts />
-          </Route>
-          <Route path="/invoicing">
-            <Invoicing />
-          </Route>
-          <Route path="/accounts/current">
-            <CurrentAccounts />
-          </Route>
-        </Switch>
+        <Route
+          render={({ location }) => {
+            return (
+              <TransitionGroup component={null}>
+                <CSSTransition
+                  timeout={300}
+                  classNames="fade"
+                  key={location.key}
+                >
+                  <Switch>
+                    <Route path="/" exact>
+                      <AllAccounts />
+                    </Route>
+                    <Route path="/invoicing" exact>
+                      <Invoicing />
+                    </Route>
+                    <Route path="/accounts/current" exact>
+                      <CurrentAccounts />
+                    </Route>
+                    <Route path="/accounts/savings" exact>
+                      <SavingsAccounts />
+                    </Route>
+                    <Route path="/accounts/tax" exact>
+                      <TaxAccounts />
+                    </Route>
+                  </Switch>
+                </CSSTransition>
+              </TransitionGroup>
+            );
+          }}
+        />
       </main>
     </div>
   );

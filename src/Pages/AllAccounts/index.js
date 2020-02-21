@@ -19,7 +19,7 @@ const accounts = [
 ];
 const AllAccounts = () => {
   return (
-    <div className="all-accounts">
+    <div className="all-accounts pd ">
       <h1 className="all-accounts__heading">All accounts</h1>
       <div className="all-accounts__cards">
         {accounts.map(account => (
