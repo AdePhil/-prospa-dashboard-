@@ -1,6 +1,6 @@
 import React from "react";
 import "./table.scss";
-const Table = ({ data: { date, isExportable } }) => {
+const Table = ({ data: { date, isExportable }, setViewTransaction }) => {
   return (
     <div className="table">
       <div className="table__heading">
@@ -22,7 +22,7 @@ const Table = ({ data: { date, isExportable } }) => {
 
       <table className="table__container">
         <tbody>
-          <tr className="tr">
+          <tr className="tr" onClick={setViewTransaction}>
             <td className="td">
               <div className="icon" style={{ backgroundColor: "#A7E521" }}>
                 <img src="/sales.svg" alt="" />
@@ -37,7 +37,7 @@ const Table = ({ data: { date, isExportable } }) => {
             <td className="td">7:30pm</td>
             <td className="td blue">₦250,500.00</td>
           </tr>
-          <tr className="tr">
+          <tr className="tr" onClick={setViewTransaction}>
             <td className="td">
               <div className="icon">
                 <img src="/house.svg" alt="" />
@@ -52,7 +52,7 @@ const Table = ({ data: { date, isExportable } }) => {
             <td className="td">7:30pm</td>
             <td className="td blue">₦250,500.00</td>
           </tr>
-          <tr className="tr">
+          <tr className="tr" onClick={setViewTransaction}>
             <td className="td">
               <div className="icon" style={{ backgroundColor: "#74D4F0" }}>
                 <img src="/plane.svg" alt="" />
@@ -67,7 +67,7 @@ const Table = ({ data: { date, isExportable } }) => {
             <td className="td">7:30pm</td>
             <td className="td blue">₦250,500.00</td>
           </tr>
-          <tr className="tr">
+          <tr className="tr" onClick={setViewTransaction}>
             <td className="td">
               <div className="icon">
                 <img src="/house.svg" alt="" />

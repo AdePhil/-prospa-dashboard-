@@ -34,7 +34,7 @@ const initialSideBarItems = [
     link: "/",
     open: false,
     items: [
-      { id: 2, name: "all", label: "All", link: "/accounts/all" },
+      { id: 10, name: "all", label: "All", link: "/accounts/all" },
       { id: 2, name: "current", label: "Current", link: "/accounts/current" },
       { id: 3, name: "savings", label: "Savings", link: "/accounts/savings" },
       { id: 4, name: "tax", label: "Tax", link: "/accounts/tax" }
@@ -100,7 +100,6 @@ const DashboardLayout = () => {
   }, [location.pathname]);
 
   useEffect(() => {
-    console.log({ isOutside });
     if (isOutside) {
       setShowMenu(false);
     }

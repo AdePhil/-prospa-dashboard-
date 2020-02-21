@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Table from "../../Components/Table";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -7,8 +7,12 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 import "./accounts.scss";
 const Accounts = ({ type }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [viewTransaction, setViewTransaction] = useState(false);
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
+  };
+  const showView = () => {
+    setViewTransaction(true);
   };
 
   const handleClose = () => {
@@ -23,13 +27,26 @@ const Accounts = ({ type }) => {
           <h1 className="account__amount-heading">₦250,234.96</h1>
           <button className="btn account__amount-btn">Make payment</button>
         </div>
-        <Table data={{ date: "Friday 15 July 2019", isExportable: true }} />
-        <Table data={{ date: "Thursday 14 July 2019", isExportable: false }} />
+        <Table
+          data={{ date: "Friday 15 July 2019", isExportable: true }}
+          setViewTransaction={showView}
+        />
+        <Table
+          data={{ date: "Thursday 14 July 2019", isExportable: false }}
+          setViewTransaction={showView}
+        />
       </div>
-      <div className="account__transaction">
+      <div
+        className={`${viewTransaction ? "active" : ""} account__transaction`}
+      >
         <p className="account__transaction-text text-blue">Transfer</p>
         <p className="account__transaction-text">9:14PM, Feb 15, 2019</p>
-        <button className="btn btn-close">&times;</button>
+        <button
+          className="btn btn-close"
+          onClick={() => setViewTransaction(false)}
+        >
+          &times;
+        </button>
         <div className="account__transaction-details">
           <div className="account__transaction-details-icon">
             <img src="/house.svg" alt="House" />
