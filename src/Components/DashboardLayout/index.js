@@ -2,13 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import "./dashboardlayout.scss";
 import AllAccounts from "../../Pages/AllAccounts";
-import {
-  Switch,
-  Route,
-  NavLink,
-  useLocation,
-  Redirect
-} from "react-router-dom";
+import { Switch, Route, useLocation, Redirect } from "react-router-dom";
 import Invoicing from "../../Pages/Invoicing";
 import Sidebar from "../Sidebar";
 import { useState } from "react";

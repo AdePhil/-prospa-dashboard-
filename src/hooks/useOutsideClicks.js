@@ -1,5 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 
 function useOutsideClicks(ref1, ref2) {
   /**
@@ -10,7 +9,8 @@ function useOutsideClicks(ref1, ref2) {
     if (
       ref1.current &&
       !ref1.current.contains(event.target) &&
-      ref2.current && !ref2.current.contains(event.target)
+      ref2.current &&
+      !ref2.current.contains(event.target)
     ) {
       setIsOutSide(true);
       return;
