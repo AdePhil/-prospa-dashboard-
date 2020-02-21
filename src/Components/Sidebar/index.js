@@ -14,8 +14,11 @@ const Sidebar = ({
   sidebarRef,
   setShowMenu
 }) => {
-  function toggleCollapse(id) {
-    // setShowMenu(false);
+  function toggleCollapse(id, hasSubItems) {
+    if (!hasSubItems) {
+      setShowMenu(false);
+    }
+
     setSideBarItems(items => {
       return items.map(item => {
         if (item.id === id) {
@@ -47,7 +50,7 @@ const Sidebar = ({
                   className="side-nav-item"
                   exact
                   to={link}
-                  onClick={() => toggleCollapse(id, link)}
+                  onClick={() => toggleCollapse(id, Array.isArray(subItems))}
                 >
                   <img src={`/${name}.svg`} alt="Accounts" />
                   <span>{label}</span>
@@ -73,6 +76,7 @@ const Sidebar = ({
                           exact
                           to={subItem.link}
                           style={{ paddingLeft: "58px" }}
+                          onClick={() => setShowMenu(false)}
                         >
                           {/* <img src={`/${subItem.name}.svg`} alt="Accounts" /> */}
                           <span>{subItem.label}</span>
