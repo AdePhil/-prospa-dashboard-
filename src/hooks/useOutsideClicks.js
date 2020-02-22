@@ -1,28 +1,17 @@
 import { useEffect, useState } from "react";
 
-function useOutsideClicks(ref1, ref2) {
-  /**
-   * Alert if clicked on outside of element
-   */
+function useOutsideClicks(refs) {
   const [isOutside, setIsOutSide] = useState(true);
   function handleClickOutside(event) {
-    if (
-      ref1.current &&
-      !ref1.current.contains(event.target) &&
-      ref2.current &&
-      !ref2.current.contains(event.target)
-    ) {
-      setIsOutSide(true);
-      return;
-    }
-    setIsOutSide(false);
+    const isOutside = refs.every(
+      ref => ref.current && !ref.current.contains(event.target)
+    );
+    setIsOutSide(isOutside);
   }
 
   useEffect(() => {
-    // Bind the event listener
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      // Unbind the event listener on clean up
       document.removeEventListener("mousedown", handleClickOutside);
     };
   });

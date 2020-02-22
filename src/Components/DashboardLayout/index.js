@@ -86,7 +86,7 @@ const DashboardLayout = () => {
   const [showMenu, setShowMenu] = useState();
   let mobileRef = useRef(null);
   let testRef = useRef(null);
-  const [isOutside, clickTarget] = useOutsideClicks(mobileRef, testRef);
+  const [isOutside, clickTarget] = useOutsideClicks([mobileRef, testRef]);
   let location = useLocation();
   let history = useHistory();
 
@@ -121,7 +121,17 @@ const DashboardLayout = () => {
           onClick={() => setShowMenu(prev => !prev)}
           ref={testRef}
         >
-          &#9776;
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            version="1.1"
+            x="0px"
+            y="0px"
+            viewBox="0 0 100 125"
+          >
+            <path d="M63.8,55.5H19c-3,0-5.5-2.5-5.5-5.5v0c0-3,2.5-5.5,5.5-5.5h44.9c3,0,5.5,2.5,5.5,5.5v0C69.3,53,66.9,55.5,63.8,55.5z" />
+            <path d="M44.4,86.9H19c-3,0-5.5-2.5-5.5-5.5v0c0-3,2.5-5.5,5.5-5.5h25.4c3,0,5.5,2.5,5.5,5.5v0C49.9,84.5,47.4,86.9,44.4,86.9z" />
+            <path d="M81.3,24H19c-3,0-5.5-2.5-5.5-5.5v0c0-3,2.5-5.5,5.5-5.5h62.4c3,0,5.5,2.5,5.5,5.5v0C86.8,21.5,84.4,24,81.3,24z" />
+          </svg>
         </button>
         <button className="btn back" onClick={() => history.goBack()}>
           <img src="/back.svg" alt="Go back" />
@@ -165,7 +175,7 @@ const DashboardLayout = () => {
         setShowMenu={setShowMenu}
         pathname={location.pathname}
       />
-      <main className="dashboard__main">
+      <main className={`${showMenu ? "disabled" : ""} dashboard__main`}>
         <Route
           render={({ location }) => {
             return (

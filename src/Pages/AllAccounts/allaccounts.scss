@@ -26,6 +26,11 @@
     font-size: 1.6rem;
     color: #778699;
     cursor: pointer;
+    transition: transform 250ms;
+    &:hover {
+      transform: scale(0.96);
+      border: 1px dashed var(--blue);
+    }
     p {
       font-weight: 600;
     }

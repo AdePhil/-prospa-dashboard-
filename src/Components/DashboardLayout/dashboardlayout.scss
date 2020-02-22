@@ -25,6 +25,10 @@
       font-size: 20px;
       color: var(--blue);
       cursor: pointer;
+      padding-top: 15px;
+      svg {
+        width: 25px;
+      }
       @media (max-width: 1000px) {
         display: inline-block;
       }
@@ -69,6 +73,10 @@
     min-height: calc(100vh - 60px);
     position: relative;
     overflow-x: hidden;
+    pointer-events: all;
+    &.disabled {
+      pointer-events: none;
+    }
     @media (max-width: 1000px) {
       margin-left: 0;
     }

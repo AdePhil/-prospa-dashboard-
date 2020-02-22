@@ -1,5 +1,8 @@
 .table {
   background-color: #fff;
+  &__container {
+    border-collapse: collapse;
+  }
   &__heading {
     display: flex;
     justify-content: space-between;
@@ -54,9 +57,25 @@
     color: var(--blue-gray);
     cursor: pointer;
   }
+  .tr {
+    &:hover {
+      .td {
+        border-color: transparent;
+        background-color: var(--light-blue);
+      }
+    }
+  }
 
   .td {
     border-bottom: 1px solid var(--light-blue);
+    transition: background-color 100ms;
+    &:first-child {
+      border-left: 1px solid transparent;
+    }
+
+    &:last-child {
+      border-right: 1px solid transparent;
+    }
     span {
       display: block;
     }
