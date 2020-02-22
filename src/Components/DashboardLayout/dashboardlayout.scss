@@ -34,7 +34,7 @@
       padding: 8px;
       transition: background-color 300ms;
       &:hover {
-        background: #efeaff;
+        background: var(--blue-highlight);
       }
 
       svg {
