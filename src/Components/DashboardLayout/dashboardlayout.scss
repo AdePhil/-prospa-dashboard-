@@ -4,13 +4,14 @@
   min-height: 100vh;
   grid-template-rows: auto;
   background-color: #fff;
+
   &__header {
     grid-column: 1/-1;
     background-color: #fff;
     box-shadow: 6px 2px 26px rgba(39, 4, 80, 0.16);
     padding: 0px 50px 0px 40px;
     overflow-x: hidden;
-    height: 40px;
+    height: 45px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -20,17 +21,27 @@
     }
 
     .mobile {
-      // margin-right: auto;
+      padding: 10px 0;
+    }
+    .mobile {
+      width: 35px;
+      height: 35px;
       display: none;
-      font-size: 20px;
-      color: var(--blue);
-      cursor: pointer;
-      padding-top: 15px;
+      align-items: center;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100%;
+      padding: 8px;
+      transition: background-color 300ms;
+      &:hover {
+        background: #efeaff;
+      }
+
       svg {
-        width: 25px;
+        width: 20px;
       }
       @media (max-width: 1000px) {
-        display: inline-block;
+        display: flex;
       }
     }
     .back {

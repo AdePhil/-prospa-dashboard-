@@ -116,23 +116,25 @@ const DashboardLayout = () => {
   return (
     <div className="dashboard">
       <header className="dashboard__header">
-        <button
-          className="btn mobile"
-          onClick={() => setShowMenu(prev => !prev)}
-          ref={testRef}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            version="1.1"
-            x="0px"
-            y="0px"
-            viewBox="0 0 100 125"
+        <div className="mobile__container">
+          <button
+            className="btn mobile"
+            onClick={() => setShowMenu(prev => !prev)}
+            ref={testRef}
           >
-            <path d="M63.8,55.5H19c-3,0-5.5-2.5-5.5-5.5v0c0-3,2.5-5.5,5.5-5.5h44.9c3,0,5.5,2.5,5.5,5.5v0C69.3,53,66.9,55.5,63.8,55.5z" />
-            <path d="M44.4,86.9H19c-3,0-5.5-2.5-5.5-5.5v0c0-3,2.5-5.5,5.5-5.5h25.4c3,0,5.5,2.5,5.5,5.5v0C49.9,84.5,47.4,86.9,44.4,86.9z" />
-            <path d="M81.3,24H19c-3,0-5.5-2.5-5.5-5.5v0c0-3,2.5-5.5,5.5-5.5h62.4c3,0,5.5,2.5,5.5,5.5v0C86.8,21.5,84.4,24,81.3,24z" />
-          </svg>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              version="1.1"
+              x="0px"
+              y="0px"
+              viewBox="0 0 100 125"
+            >
+              <path d="M63.8,55.5H19c-3,0-5.5-2.5-5.5-5.5v0c0-3,2.5-5.5,5.5-5.5h44.9c3,0,5.5,2.5,5.5,5.5v0C69.3,53,66.9,55.5,63.8,55.5z" />
+              <path d="M44.4,86.9H19c-3,0-5.5-2.5-5.5-5.5v0c0-3,2.5-5.5,5.5-5.5h25.4c3,0,5.5,2.5,5.5,5.5v0C49.9,84.5,47.4,86.9,44.4,86.9z" />
+              <path d="M81.3,24H19c-3,0-5.5-2.5-5.5-5.5v0c0-3,2.5-5.5,5.5-5.5h62.4c3,0,5.5,2.5,5.5,5.5v0C86.8,21.5,84.4,24,81.3,24z" />
+            </svg>
+          </button>
+        </div>
         <button className="btn back" onClick={() => history.goBack()}>
           <img src="/back.svg" alt="Go back" />
         </button>
